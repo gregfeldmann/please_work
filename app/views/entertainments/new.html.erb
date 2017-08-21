@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @entertainment.errors.any? %>
+  <% @entertainment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Entertainment</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_entertainment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for picture -->
+      <div class="form-group">
+        <label for="picture" class="control-label">
+          Picture
+        </label>
+
+        <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @entertainment.picture %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @entertainment.title %>">
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @entertainment.category %>">
+      </div>
+
+      <!-- Label and input for rating -->
+      <div class="form-group">
+        <label for="rating" class="control-label">
+          Rating
+        </label>
+
+        <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @entertainment.rating %>">
+      </div>
+
+      <!-- Label and input for sender_id -->
+      <div class="form-group">
+        <label for="sender_id" class="control-label">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id" name="sender_id" placeholder="Sender" class="form-control" value="<%= @entertainment.sender_id %>">
+      </div>
+
+      <!-- Label and input for receiver_id -->
+      <div class="form-group">
+        <label for="receiver_id" class="control-label">
+          Receiver
+        </label>
+
+        <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @entertainment.receiver_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Entertainment
+      </button>
+      or
+      <a href="/entertainments">Cancel</a>
+    </form>
+  </div>
+</div>
