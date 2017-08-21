@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Receiver resource:
+  # CREATE
+  get "/receivers/new", :controller => "receivers", :action => "new"
+  post "/create_receiver", :controller => "receivers", :action => "create"
+
+  # READ
+  get "/receivers", :controller => "receivers", :action => "index"
+  get "/receivers/:id", :controller => "receivers", :action => "show"
+
+  # UPDATE
+  get "/receivers/:id/edit", :controller => "receivers", :action => "edit"
+  post "/update_receiver/:id", :controller => "receivers", :action => "update"
+
+  # DELETE
+  get "/delete_receiver/:id", :controller => "receivers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Entertainment resource:
   # CREATE
   get "/entertainments/new", :controller => "entertainments", :action => "new"
