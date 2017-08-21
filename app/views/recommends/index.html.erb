@@ -19,10 +19,28 @@
 
       <% @recommends.each do |recommend| %>
       <tr>
-        <td><%= recommend.entertainment.picture %></td>
-        <td><%= recommend.user.name %></td>
+        <td>
+          <% if recommend.entertainment.present? %>
+            <a href="/entertainments/<%= recommend.entertainment.id %>">
+              <%= recommend.entertainment.picture %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommend.user.present? %>
+            <a href="/users/<%= recommend.user.id %>">
+              <%= recommend.user.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommend.username %></td>
-        <td><%= recommend.receiver.entertainment_id %></td>
+        <td>
+          <% if recommend.receiver.present? %>
+            <a href="/receivers/<%= recommend.receiver.id %>">
+              <%= recommend.receiver.entertainment_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommend.receiver_username %></td>
         <td>
           <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>

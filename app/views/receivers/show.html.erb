@@ -9,7 +9,13 @@
       <dd><%= @receiver.entertainment_id %></dd>
 
       <dt>User</dt>
-      <dd><%= @receiver.user_id %></dd>
+      <dd>
+        <% if @receiver.user.present? %>
+          <a href="/entertainments/<%= @receiver.user_id %>">
+            <%= @receiver.user.picture %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

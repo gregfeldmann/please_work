@@ -17,7 +17,13 @@
       <% @receivers.each do |receiver| %>
       <tr>
         <td><%= receiver.entertainment_id %></td>
-        <td><%= receiver.user.picture %></td>
+        <td>
+          <% if receiver.user.present? %>
+            <a href="/entertainments/<%= receiver.user.id %>">
+              <%= receiver.user.picture %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/receivers/<%= receiver.id %>" class="btn btn-primary">Show</a>
           <a href="/receivers/<%= receiver.id %>/edit" class="btn btn-warning">Edit</a>
