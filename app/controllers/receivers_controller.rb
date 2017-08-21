@@ -1,6 +1,7 @@
 class ReceiversController < ApplicationController
   def index
-    @receivers = Receiver.page(params[:page]).per(10)
+    @q = Receiver.ransack(params[:q])
+    @receivers = @q.result(:distinct => true).includes(:user, :recommends).page(params[:page]).per(10)
 
     render("receivers/index.html.erb")
   end
