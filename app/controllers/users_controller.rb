@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
+    @recommend = Recommend.new
     @user = User.find(params[:id])
 
     render("users/show.html.erb")

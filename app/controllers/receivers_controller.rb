@@ -6,6 +6,7 @@ class ReceiversController < ApplicationController
   end
 
   def show
+    @recommend = Recommend.new
     @receiver = Receiver.find(params[:id])
 
     render("receivers/show.html.erb")
