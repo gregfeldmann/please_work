@@ -38,3 +38,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Entertainment has many ratings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Ratings
+      </li>
+
+      <% @entertainment.ratings.each do |rating| %>
+        <li class="list-group-item">
+          <a href="/ratings/<%= rating.id %>">
+            <%= rating.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/ratings/<%= rating.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rating/<%= rating.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Entertainment has many recommends -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Recommends
+      </li>
+
+      <% @entertainment.recommends.each do |recommend| %>
+        <li class="list-group-item">
+          <a href="/recommends/<%= recommend.id %>">
+            <%= recommend.entertainment_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_recommend/<%= recommend.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Entertainment has many receivers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Receivers
+      </li>
+
+      <% @entertainment.receivers.each do |receiver| %>
+        <li class="list-group-item">
+          <a href="/receivers/<%= receiver.id %>">
+            <%= receiver.entertainment_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/receivers/<%= receiver.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/receivers/<%= receiver.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_receiver/<%= receiver.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
