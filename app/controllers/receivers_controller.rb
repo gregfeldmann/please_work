@@ -1,6 +1,6 @@
 class ReceiversController < ApplicationController
   def index
-    @receivers = Receiver.all
+    @receivers = Receiver.page(params[:page]).per(10)
 
     render("receivers/index.html.erb")
   end
