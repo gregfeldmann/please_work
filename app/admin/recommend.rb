@@ -1,5 +1,7 @@
 ActiveAdmin.register Recommend do
 
+ permit_params :entertainment_id, :user_id, :username, :receiver_id, :receiver_username
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
