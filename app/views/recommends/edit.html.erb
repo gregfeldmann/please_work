@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @recommend.errors.any? %>
+  <% @recommend.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Recommend #<%= @recommend.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_recommend/<%= @recommend.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for entertainment_id -->
+      <div class="form-group">
+        <label for="entertainment_id" class="control-label">
+          Entertainment
+        </label>
+
+        <input type="text" id="entertainment_id" name="entertainment_id" placeholder="Entertainment" class="form-control" value="<%= @recommend.entertainment_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @recommend.user_id %>">
+      </div>
+
+      <!-- Label and input for username -->
+      <div class="form-group">
+        <label for="username" class="control-label">
+          Username
+        </label>
+
+        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<%= @recommend.username %>">
+      </div>
+
+      <!-- Label and input for receiver_id -->
+      <div class="form-group">
+        <label for="receiver_id" class="control-label">
+          Receiver
+        </label>
+
+        <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @recommend.receiver_id %>">
+      </div>
+
+      <!-- Label and input for receiver_username -->
+      <div class="form-group">
+        <label for="receiver_username" class="control-label">
+          Receiver username
+        </label>
+
+        <input type="text" id="receiver_username" name="receiver_username" placeholder="Receiver username" class="form-control" value="<%= @recommend.receiver_username %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Recommend
+      </button>
+      or
+      <a href="/recommends/<%= @recommend.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

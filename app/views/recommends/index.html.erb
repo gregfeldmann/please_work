@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Recommends
+    <a href="/recommends/new" class="btn btn-lg btn-success">New Recommend</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Entertainment</th>
+        <th>User</th>
+        <th>Username</th>
+        <th>Receiver</th>
+        <th>Receiver username</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @recommends.each do |recommend| %>
+      <tr>
+        <td><%= recommend.entertainment_id %></td>
+        <td><%= recommend.user_id %></td>
+        <td><%= recommend.username %></td>
+        <td><%= recommend.receiver_id %></td>
+        <td><%= recommend.receiver_username %></td>
+        <td>
+          <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>
+          <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_recommend/<%= recommend.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
